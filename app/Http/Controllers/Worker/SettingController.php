@@ -54,17 +54,15 @@ class SettingController extends Controller
 
     public function password(Request $request, $id)
     {
-        $user = User::find(auth()->user()->id);
-
         $validate = $request->validate([
             'old_password' => 'required|min:8',
             'password' => 'required|min:8|confirmed',
         ]);
 
-        $check = Hash::check($validate['password'], $user->password);
+        $user = User::find(auth()->user()->id);
+        $check = Hash::check($validate['old_password'], $user->password);
 
         if (!$check) {
-            dd(!$check);
             return redirect()->back()->with('error', 'Password anda salah, silahkan coba lagi');
         }
 

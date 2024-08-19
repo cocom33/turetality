@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignUuid('user_id')->index()->nullable();
             $table->string('menu');
             $table->string('asal');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->timestamp('date');
             $table->text('catatan');
             $table->timestamps();

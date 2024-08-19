@@ -90,21 +90,7 @@
                             </div>
                             <div class="flex gap-3 items-center ml-auto mt-5 md:mt-0">
                                 <div class="flex flex-col items-center relative">
-                                    <x-button-light color="green" text="add type 1" :link="route('analisis-chse.clean1')" />
-                                    @if ($c1)
-                                    <div class="mt-1 absolute -bottom-5">
-                                        <span>sudah laporan</span>
-                                    </div>
-                                    @endif
-                                </div>
-                                <div style="height: 40px " class="border"></div>
-                                <div class="flex flex-col items-center relative">
-                                    <x-button-light color="green" text="add type 2" :link="route('analisis-chse.clean2')" />
-                                    @if ($c2)
-                                    <div class="mt-1 absolute -bottom-5">
-                                        <span>sudah laporan</span>
-                                    </div>
-                                    @endif
+                                    <x-button-light color="green" text="tambah report" :link="route('analisis-chse.clean1')" />
                                 </div>
                             </div>
                         </div>
@@ -120,21 +106,7 @@
                             </div>
                             <div class="flex gap-3 items-center ml-auto mt-5 md:mt-0">
                                 <div class="flex flex-col items-center relative">
-                                    <x-button-light color="green" text="add type 1" :link="route('analisis-chse.health1')" />
-                                    @if ($h1)
-                                    <div class="mt-1 absolute -bottom-5">
-                                        <span>sudah laporan</span>
-                                    </div>
-                                    @endif
-                                </div>
-                                <div style="height: 40px " class="border"></div>
-                                <div class="flex flex-col items-center relative">
-                                    <x-button-light color="green" text="add type 2" :link="route('analisis-chse.health2')" />
-                                    @if ($h2)
-                                    <div class="mt-1 absolute -bottom-5">
-                                        <span>sudah laporan</span>
-                                    </div>
-                                    @endif
+                                    <x-button-light color="green" text="tambah laporan" :link="route('analisis-chse.health1')" />
                                 </div>
                             </div>
                         </div>
@@ -150,21 +122,7 @@
                             </div>
                             <div class="flex gap-3 items-center ml-auto mt-5 md:mt-0">
                                 <div class="flex flex-col items-center relative">
-                                    <x-button-light color="green" text="add type 1" :link="route('analisis-chse.safety1')" />
-                                    @if ($s1)
-                                    <div class="mt-1 absolute -bottom-5">
-                                        <span>sudah laporan</span>
-                                    </div>
-                                    @endif
-                                </div>
-                                <div style="height: 40px " class="border"></div>
-                                <div class="flex flex-col items-center relative">
-                                    <x-button-light color="green" text="add type 2" :link="route('analisis-chse.safety2')" />
-                                    @if ($s2)
-                                    <div class="mt-1 absolute -bottom-5">
-                                        <span>sudah laporan</span>
-                                    </div>
-                                    @endif
+                                    <x-button-light color="green" text="tambah laporan" :link="route('analisis-chse.safety1')" />
                                 </div>
                             </div>
                         </div>
@@ -180,21 +138,7 @@
                             </div>
                             <div class="flex gap-3 items-center ml-auto mt-5 md:mt-0">
                                 <div class="flex flex-col items-center relative">
-                                    <x-button-light color="green" text="add type 1" :link="route('analisis-chse.environment1')" />
-                                    @if ($e1)
-                                    <div class="mt-1 absolute -bottom-5">
-                                        <span>sudah laporan</span>
-                                    </div>
-                                    @endif
-                                </div>
-                                <div style="height: 40px " class="border"></div>
-                                <div class="flex flex-col items-center relative">
-                                    <x-button-light color="green" text="add type 2" :link="route('analisis-chse.environment2')" />
-                                    @if ($e2)
-                                    <div class="mt-1 absolute -bottom-5">
-                                        <span>sudah laporan</span>
-                                    </div>
-                                    @endif
+                                    <x-button-light color="green" text="tambah laporan" :link="route('analisis-chse.environment1')" />
                                 </div>
                             </div>
                         </div>

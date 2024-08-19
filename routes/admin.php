@@ -64,6 +64,7 @@ Route::prefix("/admin")->name("admin.")->group(function () {
         Route::get('/worker-health/create', [WorkerHealthController::class, 'create'])->name('worker-health.create');
         Route::post('/worker-health/store', [WorkerHealthController::class, 'store'])->name('worker-health.store');
         Route::delete('/worker-health/{id}', [WorkerHealthController::class, 'delete'])->name('worker-health.delete');
+        Route::put('/worker-health/{id}', [WorkerHealthController::class, 'recomendation'])->name('worker-health.recomendation');
 
         Route::get('/call-center', [CallCenterController::class, 'index'])->name('call-center');
         Route::get('/call-center/create', [CallCenterController::class, 'create'])->name('call-center.create');

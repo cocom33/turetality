@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Worker;
 
 use App\Http\Controllers\Controller;
 use App\Models\AnalystChse;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AnalisisChseController extends Controller
 {
@@ -22,38 +24,36 @@ class AnalisisChseController extends Controller
         $data['lastS'] = $last->where('type', 'safety')->first();
         $data['lastE'] = $last->where('type', 'environment')->first();
 
-        $c = AnalystChse::select('type', 'user_id', 'created_at', 'number')->where('user_id', auth()->user()->id)->whereDate('created_at', date('Y-m-d'))->get();
-
-        $data['c1'] = $c->where('type', 'clean')->where('number', 1)->first();
-        $data['c2'] = $c->where('type', 'clean')->where('number', 2)->first();
-        $data['h1'] = $c->where('type', 'health')->where('number', 1)->first();
-        $data['h2'] = $c->where('type', 'health')->where('number', 2)->first();
-        $data['s1'] = $c->where('type', 'safety')->where('number', 1)->first();
-        $data['s2'] = $c->where('type', 'safety')->where('number', 2)->first();
-        $data['e1'] = $c->where('type', 'environment')->where('number', 1)->first();
-        $data['e2'] = $c->where('type', 'environment')->where('number', 2)->first();
-
         return view('worker.analyst-chse.index', $data);
     }
 
-    public function store(Request $req)
+    public function store(Request $request)
     {
-        $validate = $req->validate([
-            'number' => 'required',
-            'type' => 'required',
-            'check' => 'required',
-            'place' => 'required',
-            'catatan' => 'required',
-            'photo' => 'sometimes',
-        ]);
+        $data = ['number', 'type', 'check', 'place', 'catatan', 'photo'];
 
-        $validate['user_id'] = auth()->user()->id;
-
-        if ($req['photo'] != null) {
-            $validate['photo'] = $this->file_upload('/analisis-chse', $validate['photo']);
+        for ($i=0; $i < 2; $i++) {
+            if ($i == 0) {
+                for ($j=0; $j < count($data); $j++) {
+                    $satu[$data[$j]] = $request[$data[$j].$i];
+                }
+                if ($satu['photo'] != null) {
+                    $satu['photo'] = $this->file_upload('/analisis-chse', $satu['photo']);
+                }
+                $satu['user_id'] = auth()->user()->id;
+                $satu['created_at'] = Carbon::create('now');
+            } else {
+                for ($j=0; $j < count($data); $j++) {
+                    $dua[$data[$j]] = $request[$data[$j].$i];
+                }
+                if ($dua['photo'] != null) {
+                    $dua['photo'] = $this->file_upload('/analisis-chse', $dua['photo']);
+                }
+                $dua['user_id'] = auth()->user()->id;
+                $dua['created_at'] = Carbon::create('now');
+            }
         }
 
-        AnalystChse::create($validate);
+        DB::table('analyst_chses')->insert([$satu, $dua]);
 
         return redirect()->route('analisis-chse.index');
     }

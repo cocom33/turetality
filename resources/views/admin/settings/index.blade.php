@@ -20,6 +20,11 @@
                         {{ session('success') }}
                     </div>
                 @endif
+                @if (session('error'))
+                    <div class="px-6 py-3 text-white bg-red-600 rounded-lg mt-5">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 @if ($errors->all())
                     <div class="px-6 py-3 bg-red-500 text-white rounded-lg mt-5">
                         @foreach ($errors->all() as $item)

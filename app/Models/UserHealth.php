@@ -10,7 +10,7 @@ class UserHealth extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $fillable = ['user_id', 'keluhan', 'hasil_pemeriksaan', 'catatan', 'photo'];
+    protected $fillable = ['user_id', 'keluhan', 'hasil_pemeriksaan', 'catatan', 'photo', 'recomendation'];
 
     public function user()
     {

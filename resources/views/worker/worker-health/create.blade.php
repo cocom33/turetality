@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('worker.layouts.app')
 
 @section('breadcrumb', 'Tambah Kesehatan Pekerja')
 
@@ -15,19 +15,9 @@
                     <div class="grid grid-cols-12 gap-6 mt-5">
                         <div class="intro-y col-span-12">
                             <div class="intro-y box p-5 ">
-                                <form id="worker-health" action="{{ route('admin.worker-health.store') }}" method="POST" enctype="multipart/form-data">
+                                <form id="worker-health" action="{{ route('worker-health.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="flex flex-col gap-4">
-                                        <div class="col">
-                                            <label class="form-label">Pilih <spam class="text-danger">*</spam> </label>
-                                            <select name="user_id" data-placeholder="" class="tom-select w-full">
-                                                @forelse ($user as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @empty
-                                                    <option disabled>Tidak ada user</option>
-                                                @endforelse
-                                            </select>
-                                        </div>
                                         <x-form-input
                                             name="keluhan"
                                             label="Keluhan"
@@ -46,10 +36,6 @@
                                             label="Bukti Keluhan"
                                             type="file"
                                         />
-                                        <div class="col">
-                                            <label for="recomendation" class="form-label">Tulis Rekomendasi</label>
-                                            <textarea id="recomendation" name="recomendation" class="w-full form-control" rows="6" >{{ $item->recomendation ?? '' }}</textarea>
-                                        </div>
                                     </div>
                                 </form>
                                 <div class="flex justify-end mt-5">

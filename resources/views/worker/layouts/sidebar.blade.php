@@ -36,12 +36,12 @@
         //     'name'   => 'data-rekap',
         //     'icon'   => 'book'
         // ],
-        // 'health' =>  [
-        //     'title'  => 'Worker Health',
-        //     'url'    => '/worker-health',
-        //     'name'   => 'worker-health',
-        //     'icon'   => 'contact'
-        // ],
+        'health' =>  [
+            'title'  => 'Worker Health',
+            'url'    => '/worker-health',
+            'name'   => 'worker-health',
+            'icon'   => 'contact'
+        ],
         'report' =>  [
             'title'  => 'Report',
             'url'    => '/reports',

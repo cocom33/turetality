@@ -10,6 +10,7 @@ use App\Http\Controllers\Worker\HistoryGiziController;
 use App\Http\Controllers\Worker\ImtController;
 use App\Http\Controllers\Worker\ReportController;
 use App\Http\Controllers\Worker\SettingController;
+use App\Http\Controllers\Worker\WorkerHealthController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->name('login');
@@ -49,6 +50,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pengukuran-imt', [ImtController::class, 'index'])->name('imt');
     Route::post('/pengukuran-imt', [ImtController::class, 'store'])->name('imt.store');
     Route::delete('/pengukuran-imt/{id}', [ImtController::class, 'delete'])->name('imt.delete');
+
+    Route::get('/worker-health', [WorkerHealthController::class, 'index'])->name('worker-health');
+    Route::get('/worker-health/create', [WorkerHealthController::class, 'create'])->name('worker-health.create');
+    Route::post('/worker-health', [WorkerHealthController::class, 'store'])->name('worker-health.store');
+    Route::delete('/worker-health/{id}', [WorkerHealthController::class, 'delete'])->name('worker-health.delete');
 
     Route::get('/reports', [ReportController::class, 'index'])->name('reports');
     Route::get('/reports/create', [ReportController::class, 'create'])->name('reports.create');

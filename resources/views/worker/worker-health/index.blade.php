@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('worker.layouts.app')
 
 @section('breadcrumb', 'Kesehatan Pekerja')
 
@@ -9,7 +9,7 @@
                 <h2 class="text-lg font-medium truncate mr-5">
                     Worker Health
                 </h2>
-                <x-button-light color="blue" text='<i data-lucide="x" class="w-18 inline mr-3 rotate-45"></i> Add' :link="route('admin.worker-health.create')" />
+                <x-button-light color="blue" text='<i data-lucide="x" class="w-18 inline mr-3 rotate-45"></i> Add' :link="route('worker-health.create')" />
             </div>
             <div class="intro-y col-span-12 mt-5">
                 <div class="intro-y box p-5">
@@ -18,7 +18,6 @@
                             <thead>
                                 <tr>
                                     <th class="whitespace-nowrap">No</th>
-                                    <th class="whitespace-nowrap">Nama</th>
                                     <th class="whitespace-nowrap">Keluhan</th>
                                     <th class="whitespace-nowrap">Tanggal Pemeriksaan</th>
                                     <th class="whitespace-nowrap">Catatan</th>
@@ -31,7 +30,6 @@
                                 @forelse ($user as $item)
                                     <tr>
                                         <td class="whitespace-nowrap">{{ $loop->iteration }}</td>
-                                        <td class="whitespace-nowrap">{{ $item->user->name }}</td>
                                         <td class="whitespace-nowrap"><x-long-text :text="$item->keluhan" /></td>
                                         <td class="whitespace-nowrap">{{ $item->hasil_pemeriksaan }}</td>
                                         <td class="whitespace-nowrap"><x-long-text :text="$item->catatan" /></td>
@@ -65,10 +63,6 @@
                                         </td>
                                         <td class="whitespace-nowrap">
                                             <div class="flex gap-2">
-                                                <x-button-light color="green" text="<i data-lucide='pencil' width='18'></i>"
-                                                    class="bg-green-700 hover:bg-green-500"
-                                                    attr="data-tw-toggle=modal data-tw-target=#modalRec{{ $item->id }}"
-                                                />
                                                 <x-button-light color="red" text="<i data-lucide='trash' width='18'></i>"
                                                     class="bg-red-700 hover:bg-red-500"
                                                     attr="data-tw-toggle=modal data-tw-target=#modalDel{{ $item->id }}"
@@ -103,33 +97,13 @@
                                                     </div>
                                                 </x-button-modal>
                                             </div>
-                                            <div id="modalRec{{ $item->id }}" class="modal" tabindex="-1" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-body p-5 text-center">
-                                                            <h2 class="text-lg font-medium truncate mt-3">Tambahkan Rekomendasi</h2>
-                                                            <form id="rec{{ $item->id }}" action="{{ route('admin.worker-health.recomendation', $item->id) }}" method="POST">
-                                                                @csrf
-                                                                @method('PUT')
-                                                                <div class="mt-3">
-                                                                    <textarea name="recomendation" class="w-full form-control" rows="10" >{{ $item->recomendation ?? '' }}</textarea>
-                                                                </div>
-                                                            </form>
-                                                            <div class="flex gap-3 justify-center mt-5">
-                                                                <button type="submit" form="rec{{ $item->id }}" class="btn btn-danger w-24">Submit</button>
-                                                                <button type="button" data-tw-dismiss="modal" class="btn btn-primary w-24">Kembali</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div id="modalDel{{ $item->id }}" class="modal" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-body p-5 text-center">
                                                             <h2 class="text-lg font-medium truncate mt-3">Hapus Keluhan?</h2>
                                                             <div class="flex gap-3 justify-center mt-5">
-                                                                <form action="{{ route('admin.worker-health.delete', $item->id) }}" method="POST">
+                                                                <form action="{{ route('worker-health.delete', $item->id) }}" method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <button class="btn btn-danger w-24">Hapus</button>

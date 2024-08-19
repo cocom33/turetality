@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('keluhan');
             $table->timestamp('hasil_pemeriksaan');
             $table->text('catatan');
+            $table->text('recomendation')->nullable();
             $table->string('photo');
             $table->timestamps();
         });

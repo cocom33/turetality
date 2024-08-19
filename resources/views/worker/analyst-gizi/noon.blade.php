@@ -31,6 +31,7 @@
                                             name="photo"
                                             label="Photo Makanan"
                                             type="file"
+                                            :required="false"
                                         />
                                         <x-form-input
                                             name="date"

@@ -21,7 +21,7 @@
                                         <input type="hidden" name="number0" value="1">
                                         <input type="hidden" name="type0" value="health">
                                         <div>
-                                            <label class="form-label">Adanya SOP K3 di tempat kerja</label>
+                                            <label class="form-label">Adanya Jaminan Kesehatan Bagi Pekerja</label>
                                             <div class="form-check mt-2">
                                                 <input checked id="yes0" class="form-check-input" type="radio" name="check0" value="1">
                                                 <label class="form-check-label" for="yes0">Iya Ada</label>
@@ -33,7 +33,7 @@
                                         </div>
                                         <x-form-input
                                             name="place0"
-                                            label="Lokasi SOP"
+                                            label="Lokasi Hotel"
                                         />
                                         <x-form-input
                                             name="catatan0"
@@ -41,7 +41,7 @@
                                         />
                                         <x-form-input
                                             name="photo0"
-                                            label="Photo SOP"
+                                            label="Photo Iuran BPJS"
                                             type="file"
                                             :required="false"
                                         />
@@ -51,7 +51,7 @@
                                         <input type="hidden" name="number1" value="2">
                                         <input type="hidden" name="type1" value="health">
                                         <div>
-                                            <label class="form-label">Adanya APAR di tempat kerja</label>
+                                            <label class="form-label">Fasilitas Pemeriksaan Kesehatan bagi Pekerja</label>
                                             <div class="form-check mt-2">
                                                 <input checked id="yes1" class="form-check-input" type="radio" name="check1" value="1">
                                                 <label class="form-check-label" for="yes1">Iya Ada</label>
@@ -63,7 +63,7 @@
                                         </div>
                                         <x-form-input
                                             name="place1"
-                                            label="Lokasi APAR"
+                                            label="Lokasi Fasilitas"
                                         />
                                         <x-form-input
                                             name="catatan1"
@@ -71,7 +71,7 @@
                                         />
                                         <x-form-input
                                             name="photo1"
-                                            label="Photo APAR"
+                                            label="Photo Fasilitas"
                                             type="file"
                                             :required="false"
                                         />

@@ -7,4 +7,4 @@ Route::get('/', function () {
 });
 
 require __DIR__ . '/admin.php';
-require __DIR__ . '/security.php';
+require __DIR__ . '/worker.php';

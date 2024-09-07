@@ -24,11 +24,11 @@
                                             <label class="form-label">Adanya SOP K3 di tempat kerja</label>
                                             <div class="form-check mt-2">
                                                 <input checked id="yes0" class="form-check-input" type="radio" name="check0" value="1">
-                                                <label class="form-check-label" for="yes0">Iya Ada</label>
+                                                <label class="form-check-label" for="yes0">iya</label>
                                             </div>
                                             <div class="form-check mt-2">
                                                 <input id="no0" class="form-check-input" type="radio" name="check0" value="0">
-                                                <label class="form-check-label" for="no0">Tidak Ada</label>
+                                                <label class="form-check-label" for="no0">tidak</label>
                                             </div>
                                         </div>
                                         <x-form-input
@@ -54,11 +54,11 @@
                                             <label class="form-label">Adanya APAR di Tempat Kerja</label>
                                             <div class="form-check mt-2">
                                                 <input checked id="yes1" class="form-check-input" type="radio" name="check1" value="1">
-                                                <label class="form-check-label" for="yes1">Iya Ada</label>
+                                                <label class="form-check-label" for="yes1">iya</label>
                                             </div>
                                             <div class="form-check mt-2">
                                                 <input id="no1" class="form-check-input" type="radio" name="check1" value="0">
-                                                <label class="form-check-label" for="no1">Tidak Ada</label>
+                                                <label class="form-check-label" for="no1">tidak</label>
                                             </div>
                                         </div>
                                         <x-form-input

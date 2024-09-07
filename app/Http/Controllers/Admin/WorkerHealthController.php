@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\WorkerHealthExport;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\UserHealth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class WorkerHealthController extends Controller
 {
@@ -60,5 +63,28 @@ class WorkerHealthController extends Controller
         ]);
 
         return redirect()->back();
+    }
+
+    public function export(Request $request)
+    {
+        if ($request->date == 'now') {
+            $start = Carbon::create($request->date)->format('Y-m-d');
+            $end = Carbon::create($request->date)->format('Y-m-d');
+        } else {
+            $d = explode('-', $request->date);
+
+            $start = Carbon::create($d[0])->format('Y-m-d');
+            $end = Carbon::create($d[1])->format('Y-m-d');
+        }
+
+        $data = UserHealth::whereDate('created_at', '>=', $start)
+                    ->whereDate('created_at', '<=', $end)
+                    ->get();
+
+        if($data->count() == 0) {
+            return redirect()->back()->with('error', 'Tidak ada data pada tanggal tersebut');
+        }
+
+        return Excel::download(new WorkerHealthExport($data, $request->type), 'worker-health ' . date('d-m-Y') . '.xlsx');
     }
 }

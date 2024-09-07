@@ -9,7 +9,7 @@
                 <h2 class="text-lg font-medium truncate mr-5">
                     Report Temuan
                 </h2>
-                <x-button-light color="blue" text='<i data-lucide="x" class="w-18 inline mr-3 rotate-45"></i> Add' :link="route('reports.create')" />
+                <x-button-light color="blue" text='<i data-lucide="x" class="w-18 inline mr-3 rotate-45"></i>Tambah' :link="route('reports.create')" />
             </div>
             <div class="intro-y col-span-12 mt-5">
                 <div class="intro-y box p-5">

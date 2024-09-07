@@ -9,7 +9,7 @@
                 <div class="col-span-12 mt-8">
                     <div class="intro-y flex items-center h-10">
                         <h2 class="text-lg font-medium truncate mr-5">
-                            Report Summary
+                            Summary Laporan
                         </h2>
                     </div>
                     <div class="grid grid-cols-12 gap-6 mt-5">
@@ -17,12 +17,12 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex justify-between items-center">
-                                        <div class="text-xl font-medium leading-8">Breakfast</div>
-                                        <a href="{{ route('history.gizi.breakfast') }}" class="text-blue-500">see all</a>
+                                        <div class="text-xl font-medium leading-8">Sarapan</div>
+                                        <a href="{{ route('history.gizi.breakfast') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
                                         <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($morning) }}</div>
-                                        <div class="text-base text-slate-500 mt-1">Report</div>
+                                        <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
                             </div>
@@ -31,12 +31,12 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex justify-between items-center">
-                                        <div class="text-xl font-medium leading-8">Launch</div>
-                                        <a href="{{ route('history.gizi.launch') }}" class="text-blue-500">see all</a>
+                                        <div class="text-xl font-medium leading-8">Makan Siang</div>
+                                        <a href="{{ route('history.gizi.launch') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
                                         <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($launch) }}</div>
-                                        <div class="text-base text-slate-500 mt-1">Report</div>
+                                        <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
                             </div>
@@ -45,12 +45,12 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex justify-between items-center">
-                                        <div class="text-xl font-medium leading-8">Dinner</div>
-                                        <a href="{{ route('history.gizi.dinner') }}" class="text-blue-500">see all</a>
+                                        <div class="text-xl font-medium leading-8">Makan Malam</div>
+                                        <a href="{{ route('history.gizi.dinner') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
                                         <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($dinner) }}</div>
-                                        <div class="text-base text-slate-500 mt-1">Report</div>
+                                        <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
                             </div>
@@ -60,11 +60,11 @@
                                 <div class="box p-5">
                                     <div class="flex justify-between items-center">
                                         <div class="text-xl font-medium leading-8">Snack</div>
-                                        <a href="{{ route('history.gizi.snack') }}" class="text-blue-500">see all</a>
+                                        <a href="{{ route('history.gizi.snack') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
                                         <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($snack) }}</div>
-                                        <div class="text-base text-slate-500 mt-1">Report</div>
+                                        <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
                             </div>
@@ -76,15 +76,15 @@
                 <div class="col-span-12 mt-12">
                     <div class="intro-y flex items-center h-10">
                         <h2 class="text-lg font-medium truncate mr-5">
-                            Add Report
+                            Tambah Laporan
                         </h2>
                     </div>
                     <a href="{{ route('analisis-gizi.breakfast') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-3 transition-transform duration-300">
                         <div class="flex gap-5 items-center">
                             <i data-lucide="shield"></i>
                             <div>
-                                <div class="text-xl font-semibold leading-8">Add Breakfast Report</div>
-                                <div class="text-base text-slate-900 mt-1">Last report : {{ $lastM ? $lastM->created_at->format('d - M - Y') : '-' }}</div>
+                                <div class="text-xl font-semibold leading-8">Tambah Laporan Sarapan</div>
+                                <div class="text-base text-slate-900 mt-1">Laporan Terakhir: {{ $lastM ? $lastM->created_at->format('d - M - Y') : '-' }}</div>
                             </div>
                         </div>
                     </a>
@@ -92,8 +92,8 @@
                         <div class="flex gap-5 items-center">
                             <i data-lucide="shield"></i>
                             <div>
-                                <div class="text-xl font-semibold leading-8">Add Launch Report</div>
-                                <div class="text-base text-slate-900 mt-1">Last report : {{ $lastL ? $lastL->created_at->format('d - M - Y') : '-' }}</div>
+                                <div class="text-xl font-semibold leading-8">Tambah Laporan Makan Siang</div>
+                                <div class="text-base text-slate-900 mt-1">Laporan Terakhir: {{ $lastL ? $lastL->created_at->format('d - M - Y') : '-' }}</div>
                             </div>
                         </div>
                     </a>
@@ -101,8 +101,8 @@
                         <div class="flex gap-5 items-center">
                             <i data-lucide="shield"></i>
                             <div>
-                                <div class="text-xl font-semibold leading-8">Add Dinner Report</div>
-                                <div class="text-base text-slate-900 mt-1">Last report : {{ $lastD ? $lastD->created_at->format('d - M - Y') : '-' }}</div>
+                                <div class="text-xl font-semibold leading-8">Tambah Laporan Makan Malam</div>
+                                <div class="text-base text-slate-900 mt-1">Laporan Terakhir: {{ $lastD ? $lastD->created_at->format('d - M - Y') : '-' }}</div>
                             </div>
                         </div>
                     </a>
@@ -110,8 +110,8 @@
                         <div class="flex gap-5 items-center">
                             <i data-lucide="shield"></i>
                             <div>
-                                <div class="text-xl font-semibold leading-8">Add Snack Report</div>
-                                <div class="text-base text-slate-900 mt-1">Last report : {{ $lastS ? $lastS->created_at->format('d - M - Y') : '-' }}</div>
+                                <div class="text-xl font-semibold leading-8">Tambah Laporan Snack</div>
+                                <div class="text-base text-slate-900 mt-1">Laporan Terakhir: {{ $lastS ? $lastS->created_at->format('d - M - Y') : '-' }}</div>
                             </div>
                         </div>
                     </a>

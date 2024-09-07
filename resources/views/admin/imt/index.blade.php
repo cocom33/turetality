@@ -118,6 +118,7 @@
                                             <th class="whitespace-nowrap">Berat Badan</th>
                                             <th class="whitespace-nowrap">Tinggi Badan</th>
                                             <th class="whitespace-nowrap">Tanggal Pengukuran</th>
+                                            <th class="whitespace-nowrap">Skor</th>
                                             <th class="whitespace-nowrap">Action</th>
                                         </tr>
                                     </thead>
@@ -130,6 +131,25 @@
                                                 <td class="whitespace-nowrap">{{ $item->berat_badan }} KG</td>
                                                 <td class="whitespace-nowrap">{{ $item->tinggi_badan }} CM</td>
                                                 <td class="whitespace-nowrap">{{ $item->created_at->format('d / m / Y') }}</td>
+                                                <td class="whitespace-nowrap">
+                                                    <div class="flex items-center gap-3">
+                                                        {{ $item->hasil }}
+                                                        <div class="hasil border border-black w-4 h-4 text-center rounded-full relative">
+                                                            <span class="test absolute text-xs right-1/2 translate-x-1/2">i</span>
+                                                            <span class="detail transition-all opacity-0 absolute right-1/2 translate-x-1/2 -top-9 bg-slate-500 px-3 py-1 rounded-md text-white">
+                                                                @if ($item->hasil <= 18.5)
+                                                                    Berat Badan Kurang
+                                                                @elseif ($item->hasil <= 22.9)
+                                                                    Berat Badan Normal
+                                                                @elseif ($item->hasil <= 29.9)
+                                                                    Berat Badan Berlebihan
+                                                                @else
+                                                                    Obesitas
+                                                                @endif
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                                 <td class="whitespace-nowrap">
                                                     <x-button-light color="red" text="<i data-lucide='trash' width='18'></i>"
                                                         class="bg-red-700 hover:bg-red-500"

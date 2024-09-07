@@ -10,8 +10,7 @@
                     History Analisis Lingkungan
                 </h2>
                 <div class="flex gap-3 ml-auto mt-5 md:mt-0">
-                    <x-button-light color="blue" text='Add Type 1' :link="route('analisis-chse.environment1')" />
-                    <x-button-light color="blue" text='Add Type 2' :link="route('analisis-chse.environment2')" />
+                    <x-button-light color="blue" text='tambah laporan' :link="route('analisis-chse.environment1')" />
                 </div>
             </div>
             <div class="intro-y col-span-12 mt-5">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Worker\AuthController;
 use App\Http\Controllers\Worker\CallCenterController;
 use App\Http\Controllers\Worker\DashboardController;
 use App\Http\Controllers\Worker\HistoryChseController;
+use App\Http\Controllers\Worker\HistoryController;
 use App\Http\Controllers\Worker\HistoryGiziController;
 use App\Http\Controllers\Worker\ImtController;
 use App\Http\Controllers\Worker\ReportController;
@@ -23,23 +24,19 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/analisis-chse')->name('analisis-chse.')->group(function() {
         Route::get('/', [AnalisisChseController::class, 'index'])->name('index');
-        Route::get('/clean-1', [AnalisisChseController::class, 'clean1'])->name('clean1');
-        Route::get('/clean-2', [AnalisisChseController::class, 'clean2'])->name('clean2');
-        Route::get('/health-1', [AnalisisChseController::class, 'health1'])->name('health1');
-        Route::get('/health-2', [AnalisisChseController::class, 'health2'])->name('health2');
-        Route::get('/safety-1', [AnalisisChseController::class, 'safety1'])->name('safety1');
-        Route::get('/safety-2', [AnalisisChseController::class, 'safety2'])->name('safety2');
-        Route::get('/environment-1', [AnalisisChseController::class, 'environment1'])->name('environment1');
-        Route::get('/environment-2', [AnalisisChseController::class, 'environment2'])->name('environment2');
+        Route::get('/kebersihan', [AnalisisChseController::class, 'clean1'])->name('clean1');
+        Route::get('/kesehatan', [AnalisisChseController::class, 'health1'])->name('health1');
+        Route::get('/keselamatan', [AnalisisChseController::class, 'safety1'])->name('safety1');
+        Route::get('/lingkungan', [AnalisisChseController::class, 'environment1'])->name('environment1');
 
         Route::post('/store', [AnalisisChseController::class, 'store'])->name('store');
     });
 
     Route::prefix('/analisis-gizi')->name('analisis-gizi.')->group(function() {
         Route::get('/', [AnalisisGiziController::class, 'index'])->name('index');
-        Route::get('/breakfast', [AnalisisGiziController::class, 'breakfast'])->name('breakfast');
-        Route::get('/launch', [AnalisisGiziController::class, 'launch'])->name('launch');
-        Route::get('/dinner', [AnalisisGiziController::class, 'dinner'])->name('dinner');
+        Route::get('/sarapan', [AnalisisGiziController::class, 'breakfast'])->name('breakfast');
+        Route::get('/makan-siang', [AnalisisGiziController::class, 'launch'])->name('launch');
+        Route::get('/makan-malam', [AnalisisGiziController::class, 'dinner'])->name('dinner');
         Route::get('/snack', [AnalisisGiziController::class, 'snack'])->name('snack');
 
         Route::post('/store', [AnalisisGiziController::class, 'store'])->name('store');
@@ -64,20 +61,24 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/history')->name('history.')->group(function(){
         Route::get('/analisis-chse', [HistoryChseController::class, 'index'])->name('chse');
-        Route::get('/analisis-chse/clean', [HistoryChseController::class, 'clean'])->name('chse.clean');
-        Route::get('/analisis-chse/health', [HistoryChseController::class, 'health'])->name('chse.health');
-        Route::get('/analisis-chse/safety', [HistoryChseController::class, 'safety'])->name('chse.safety');
-        Route::get('/analisis-chse/environment', [HistoryChseController::class, 'environment'])->name('chse.environment');
+        Route::get('/analisis-chse/kebersihan', [HistoryChseController::class, 'clean'])->name('chse.clean');
+        Route::get('/analisis-chse/kesehatan', [HistoryChseController::class, 'health'])->name('chse.health');
+        Route::get('/analisis-chse/keselamatan', [HistoryChseController::class, 'safety'])->name('chse.safety');
+        Route::get('/analisis-chse/lingkungan', [HistoryChseController::class, 'environment'])->name('chse.environment');
         Route::post('/analisis-chse/export', [HistoryChseController::class, 'export'])->name('chse.export');
         Route::delete('/analisis-chse/delete/{id}', [HistoryChseController::class, 'delete'])->name('chse.delete');
 
         Route::get('/analisis-gizi', [HistoryGiziController::class, 'index'])->name('gizi');
-        Route::get('/analisis-gizi/breakfast', [HistoryGiziController::class, 'breakfast'])->name('gizi.breakfast');
-        Route::get('/analisis-gizi/launch', [HistoryGiziController::class, 'launch'])->name('gizi.launch');
-        Route::get('/analisis-gizi/dinner', [HistoryGiziController::class, 'dinner'])->name('gizi.dinner');
+        Route::get('/analisis-gizi/sarapan', [HistoryGiziController::class, 'breakfast'])->name('gizi.breakfast');
+        Route::get('/analisis-gizi/makan-siang', [HistoryGiziController::class, 'launch'])->name('gizi.launch');
+        Route::get('/analisis-gizi/makan-malam', [HistoryGiziController::class, 'dinner'])->name('gizi.dinner');
         Route::get('/analisis-gizi/snack', [HistoryGiziController::class, 'snack'])->name('gizi.snack');
         Route::post('/analisis-gizi/export', [HistoryGiziController::class, 'export'])->name('gizi.export');
         Route::delete('/analisis-gizi/delete/{id}', [HistoryGiziController::class, 'delete'])->name('gizi.delete');
+
+        Route::get('/imt', [HistoryController::class, 'imt'])->name('imt');
+
+        Route::get('/worker-health', [HistoryController::class, 'worker'])->name('worker');
     });
 
     Route::get('/settings', [SettingController::class, 'index'])->name('setting');

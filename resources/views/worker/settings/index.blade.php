@@ -8,10 +8,10 @@
             <div class="preview">
                 <ul class="nav nav-boxed-tabs" role="tablist">
                     <li id="example-3-tab" class="nav-item flex-1" role="presentation">
-                        <button class="nav-link w-full py-2 active" data-tw-toggle="pill" data-tw-target="#example-tab-3" type="button" role="tab" aria-controls="example-tab-3" aria-selected="true" > Change Data </button>
+                        <button class="nav-link w-full py-2 active" data-tw-toggle="pill" data-tw-target="#example-tab-3" type="button" role="tab" aria-controls="example-tab-3" aria-selected="true" > Ubah Data </button>
                     </li>
                     <li id="example-4-tab" class="nav-item flex-1" role="presentation">
-                        <button class="nav-link w-full py-2" data-tw-toggle="pill" data-tw-target="#example-tab-4" type="button" role="tab" aria-controls="example-tab-4" aria-selected="false" > Change Password </button>
+                        <button class="nav-link w-full py-2" data-tw-toggle="pill" data-tw-target="#example-tab-4" type="button" role="tab" aria-controls="example-tab-4" aria-selected="false" > Ubah Password </button>
                     </li>
                 </ul>
 

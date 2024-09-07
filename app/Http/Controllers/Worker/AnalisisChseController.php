@@ -64,19 +64,9 @@ class AnalisisChseController extends Controller
         return view('worker.analyst-chse.clean');
     }
 
-    public function clean2()
-    {
-        return view('worker.analyst-chse.clean-2');
-    }
-
     public function health1()
     {
         return view('worker.analyst-chse.health');
-    }
-
-    public function health2()
-    {
-        return view('worker.analyst-chse.health-2');
     }
 
     public function safety1()
@@ -84,18 +74,8 @@ class AnalisisChseController extends Controller
         return view('worker.analyst-chse.safety');
     }
 
-    public function safety2()
-    {
-        return view('worker.analyst-chse.safety-2');
-    }
-
     public function environment1()
     {
         return view('worker.analyst-chse.environment');
-    }
-
-    public function environment2()
-    {
-        return view('worker.analyst-chse.environment-2');
     }
 }

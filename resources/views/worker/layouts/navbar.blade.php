@@ -28,7 +28,7 @@
                     </a>
                     <a href="" class="flex items-center mt-2">
                         <div class="w-8 h-8 bg-primary/10 dark:bg-primary/20 text-primary/80 flex items-center justify-center rounded-full"> <i class="w-4 h-4" data-lucide="credit-card"></i> </div>
-                        <div class="ml-3">Transactions Report</div>
+                        <div class="ml-3">Transactions </div>
                     </a>
                 </div>
                 <div class="search-result__content__title">Users</div>

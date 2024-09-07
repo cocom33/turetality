@@ -37,7 +37,7 @@
         //     'icon'   => 'book'
         // ],
         'health' =>  [
-            'title'  => 'Worker Health',
+            'title'  => 'Kesehatan Pekerja',
             'url'    => '/admin/worker-health',
             'name'   => 'admin/worker-health',
             'icon'   => 'contact'
@@ -63,16 +63,28 @@
             'icon'   => 'history',
             'menus' => [
                 [
-                    'title'  => 'History CHSE',
+                    'title'  => 'Analisis CHSE',
                     'url'    => '/admin/history/analisis-chse',
                     'name'   => 'admin/history/analisis-chse',
                     'icon'   => 'shield'
                 ],
                 [
-                    'title'  => 'History Gizi Kerja',
+                    'title'  => 'Analisis Gizi',
                     'url'    => '/admin/history/analisis-gizi',
                     'name'   => 'admin/history/analisis-gizi',
+                    'icon'   => 'cross'
+                ],
+                [
+                    'title'  => 'IMT',
+                    'url'    => '/admin/history/imt',
+                    'name'   => 'admin/history/imt',
                     'icon'   => 'heart'
+                ],
+                [
+                    'title'  => 'Kesehatan Pekerja',
+                    'url'    => '/admin/history/worker-health',
+                    'name'   => 'admin/history/worker-health',
+                    'icon'   => 'contact'
                 ],
                 // [
                 //     'title'  => 'Safety',

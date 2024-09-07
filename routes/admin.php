@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CallCenterController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HistoryChseController;
+use App\Http\Controllers\Admin\HistoryController;
 use App\Http\Controllers\Admin\HistoryGiziController;
 use App\Http\Controllers\Admin\ImtController;
 use App\Http\Controllers\Admin\ReportController;
@@ -65,6 +66,7 @@ Route::prefix("/admin")->name("admin.")->group(function () {
         Route::post('/worker-health/store', [WorkerHealthController::class, 'store'])->name('worker-health.store');
         Route::delete('/worker-health/{id}', [WorkerHealthController::class, 'delete'])->name('worker-health.delete');
         Route::put('/worker-health/{id}', [WorkerHealthController::class, 'recomendation'])->name('worker-health.recomendation');
+        Route::post('/worker-health/export', [WorkerHealthController::class, 'export'])->name('worker-health.export');
 
         Route::get('/call-center', [CallCenterController::class, 'index'])->name('call-center');
         Route::get('/call-center/create', [CallCenterController::class, 'create'])->name('call-center.create');
@@ -90,6 +92,10 @@ Route::prefix("/admin")->name("admin.")->group(function () {
             Route::get('/analisis-gizi/snack', [HistoryGiziController::class, 'snack'])->name('gizi.snack');
             Route::post('/analisis-gizi/export', [HistoryGiziController::class, 'export'])->name('gizi.export');
             Route::delete('/analisis-gizi/delete/{id}', [HistoryGiziController::class, 'delete'])->name('gizi.delete');
+
+            Route::get('/imt', [HistoryController::class, 'imt'])->name('imt');
+
+            Route::get('/worker-health', [HistoryController::class, 'worker'])->name('worker-health');
         });
 
         Route::get('/users', [UserController::class, 'index'])->name('users');

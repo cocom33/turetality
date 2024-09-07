@@ -25,7 +25,7 @@
             'icon'   => 'heart'
         ],
         'health' =>  [
-            'title'  => 'Worker Health',
+            'title'  => 'Kesehatan Pekerja',
             'url'    => '/worker-health',
             'name'   => 'worker-health',
             'icon'   => 'contact'

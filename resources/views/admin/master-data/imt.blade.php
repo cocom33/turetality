@@ -1,84 +1,28 @@
-@extends('worker.layouts.app')
+@extends('admin.layouts.app')
 
 @section('breadcrumb', 'IMT')
-
-@push('addon-style')
-    <style>
-        .hasil:hover .detail {
-            opacity: 100;
-        }
-    </style>
-@endpush
 
 @section('content')
     <div class="grid grid-cols-12 gap-6">
         <div class="col-span-12">
             <div class="grid grid-cols-12 gap-6">
-                <div class="col-span-12 mt-8">
-                    <div class="intro-y flex items-center h-10">
-                        <h2 class="text-lg font-medium truncate mr-5">
-                            Perhitungan IMT
-                        </h2>
-                    </div>
-                    <div class="grid grid-cols-12 gap-6 mt-5">
-                        <div class="intro-y col-span-12">
-                            <div class="intro-y box p-5 ">
-                                <form action="{{ route('imt.store') }}" method="POST" id="submitimt" class="grid md:grid-cols-2 gap-3">
-                                    @csrf
-                                    <x-form-input
-                                        name="name"
-                                        label="Nama"
-                                        attr="onkeyup=enableSubmit()"
-                                    />
-                                    <x-form-input
-                                        name="umur"
-                                        label="Umur"
-                                        type="number"
-                                        attr="onkeyup=enableSubmit() min=1"
-                                    />
-                                    <x-form-input
-                                        name="berat_badan"
-                                        label="Berat Badan"
-                                        type="number"
-                                        attr="onkeyup=enableSubmit() min=1"
-                                    />
-                                    <x-form-input
-                                        name="tinggi_badan"
-                                        label="Tinggi Badan"
-                                        type="number"
-                                        attr="onkeyup=enableSubmit() min=1"
-                                    />
-                                    <input type="hidden" name="hasil" id="hasil">
-                                </form>
-                                <div class="flex justify-end mt-5">
-                                    <x-button-light
-                                        attr="id=button disabled=true onclick=submit()
-                                        data-tw-toggle=modal data-tw-target=#input-imt"
-                                        color="blue" text="submit"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid grid-cols-12 gap-6">
                 <div class="col-span-12 mt-12">
-                    <div class="intro-y flex items-center h-10">
+                    <div class="intro-y flex items-center justify-between h-10">
                         <h2 class="text-lg font-medium truncate mr-5">
                             History Pengukuran IMT
                         </h2>
+                        <x-button-light color="blue" text='<i data-lucide="x" class="w-18 inline mr-3 rotate-45"></i>Tambah' :link="route('admin.imt')" />
                     </div>
                     <div class="intro-y col-span-12 mt-5">
                         <div class="intro-y box p-5">
-                            {{-- <div class="flex justify-between items-center mb-5">
+                            <div class="flex justify-between items-center mb-5">
                                 <form action="{{ route('admin.imt') }}">
-                                    <div class="input-group mt-2">
+                                    {{-- <div class="input-group mt-2">
                                         <input type="text" class="form-control" name="search" value="{{ $search ?? '' }}" placeholder="search" aria-describedby="input-group-price">
                                         <button id="input-group-price" class="input-group-text">
                                             <i data-lucide="search" width="18"></i>
                                         </button>
-                                    </div>
+                                    </div> --}}
                                 </form>
 
                                 <div class="flex gap-3">
@@ -92,7 +36,7 @@
                                         <x-button-light color="blue" text="export hari ini" />
                                     </form>
                                 </div>
-                            </div> --}}
+                            </div>
                             @if (session('error'))
                                 <div class="px-5 py-3 rounded-lg bg-red-500 mb-5 text-white">
                                     {{ session('error') }}
@@ -161,15 +105,15 @@
                                                 <td class="whitespace-nowrap">
                                                     <x-button-light color="red" text="<i data-lucide='trash' width='18'></i>"
                                                         class="bg-red-700 hover:bg-red-500"
-                                                        attr="data-tw-toggle=modal data-tw-target=#modalDelImt{{ $item->id }}"
+                                                        attr="data-tw-toggle=modal data-tw-target=#modalDel{{ $item->id }}"
                                                     />
-                                                    <div id="modalDelImt{{ $item->id }}" class="modal" tabindex="-1" aria-hidden="true">
+                                                    <div id="modalDel{{ $item->id }}" class="modal" tabindex="-1" aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-body p-5 text-center">
                                                                     <h2 class="text-lg font-medium truncate mt-3">Hapus Rekap Pengukuran?</h2>
                                                                     <div class="flex gap-3 justify-center mt-5">
-                                                                        <form action="{{ route('imt.delete', $item->id) }}" method="POST">
+                                                                        <form action="{{ route('admin.imt.delete', $item->id) }}" method="POST">
                                                                             @csrf
                                                                             @method('DELETE')
                                                                             <button class="btn btn-danger w-24">Hapus</button>
@@ -184,7 +128,7 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="7" class="text-center">tidak ada data</td>
+                                                <td colspan="6" class="text-center">tidak ada data</td>
                                             </tr>
                                         @endforelse
                                     </tbody>

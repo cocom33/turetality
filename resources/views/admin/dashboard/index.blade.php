@@ -15,12 +15,12 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex justify-between items-center">
-                                        <div class="text-xl font-medium leading-8">Cleanliness</div>
-                                        <a href="{{ route('admin.history.chse.clean') }}" class="text-blue-500">see all</a>
+                                        <div class="text-xl font-medium leading-8">Kebersihan</div>
+                                        <a href="{{ route('admin.history.chse.clean') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
                                         <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($clean) }}</div>
-                                        <div class="text-base text-slate-500 mt-1">Report</div>
+                                        <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
                             </div>
@@ -29,12 +29,12 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex justify-between items-center">
-                                        <div class="text-xl font-medium leading-8">Health</div>
-                                        <a href="{{ route('admin.history.chse.clean') }}" class="text-blue-500">see all</a>
+                                        <div class="text-xl font-medium leading-8">Kesehatan</div>
+                                        <a href="{{ route('admin.history.chse.clean') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
                                         <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($health) }}</div>
-                                        <div class="text-base text-slate-500 mt-1">Report</div>
+                                        <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
                             </div>
@@ -43,12 +43,12 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex justify-between items-center">
-                                        <div class="text-xl font-medium leading-8">Safety</div>
-                                        <a href="{{ route('admin.history.chse.safety') }}" class="text-blue-500">see all</a>
+                                        <div class="text-xl font-medium leading-8">Keselamatan</div>
+                                        <a href="{{ route('admin.history.chse.safety') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
                                         <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($safety) }}</div>
-                                        <div class="text-base text-slate-500 mt-1">Report</div>
+                                        <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
                             </div>
@@ -57,12 +57,12 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex justify-between items-center">
-                                        <div class="text-xl font-medium leading-8">Environment</div>
-                                        <a href="{{ route('admin.history.chse.environment') }}" class="text-blue-500">see all</a>
+                                        <div class="text-xl font-medium leading-8">Lingkungan</div>
+                                        <a href="{{ route('admin.history.chse.environment') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
                                         <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($environment) }}</div>
-                                        <div class="text-base text-slate-500 mt-1">Report</div>
+                                        <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
                             </div>
@@ -82,12 +82,12 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex justify-between items-center">
-                                        <div class="text-xl font-medium leading-8">Breakfast</div>
-                                        <a href="{{ route('admin.history.gizi.breakfast') }}" class="text-blue-500">see all</a>
+                                        <div class="text-xl font-medium leading-8">Sarapan</div>
+                                        <a href="{{ route('admin.history.gizi.breakfast') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
                                         <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($morning) }}</div>
-                                        <div class="text-base text-slate-500 mt-1">Report</div>
+                                        <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
                             </div>
@@ -96,12 +96,12 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex justify-between items-center">
-                                        <div class="text-xl font-medium leading-8">Launch</div>
-                                        <a href="{{ route('admin.history.gizi.launch') }}" class="text-blue-500">see all</a>
+                                        <div class="text-xl font-medium leading-8">Makan Siang</div>
+                                        <a href="{{ route('admin.history.gizi.launch') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
                                         <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($launch) }}</div>
-                                        <div class="text-base text-slate-500 mt-1">Report</div>
+                                        <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
                             </div>
@@ -110,12 +110,12 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex justify-between items-center">
-                                        <div class="text-xl font-medium leading-8">Dinner</div>
-                                        <a href="{{ route('admin.history.gizi.dinner') }}" class="text-blue-500">see all</a>
+                                        <div class="text-xl font-medium leading-8">Makan Malam</div>
+                                        <a href="{{ route('admin.history.gizi.dinner') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
                                         <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($dinner) }}</div>
-                                        <div class="text-base text-slate-500 mt-1">Report</div>
+                                        <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
                             </div>
@@ -125,11 +125,11 @@
                                 <div class="box p-5">
                                     <div class="flex justify-between items-center">
                                         <div class="text-xl font-medium leading-8">Snack</div>
-                                        <a href="{{ route('admin.history.gizi.snack') }}" class="text-blue-500">see all</a>
+                                        <a href="{{ route('admin.history.gizi.snack') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
                                         <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($snack) }}</div>
-                                        <div class="text-base text-slate-500 mt-1">Report</div>
+                                        <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
                         <h2 class="text-lg font-medium truncate mr-5">
                             History Pengukuran IMT
                         </h2>
-                        <x-button-light text="see all" color="blue" :link="route('admin.imt')" />
+                        <x-button-light text="lihat semua" color="blue" :link="route('admin.imt')" />
                     </div>
                     <div class="intro-y col-span-12 mt-5">
                         <div class="intro-y box p-5">
@@ -187,7 +187,7 @@
                         <h2 class="text-lg font-medium truncate mr-5">
                             Report Temuan
                         </h2>
-                        <x-button-light color="blue" text='see all' :link="route('admin.report')" />
+                        <x-button-light color="blue" text='lihat semua' :link="route('admin.report')" />
                     </div>
                     <div class="intro-y col-span-12 mt-5">
                         <div class="intro-y box p-5">

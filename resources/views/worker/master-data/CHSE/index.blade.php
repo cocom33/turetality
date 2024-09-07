@@ -12,9 +12,9 @@
                 <div class="flex gap-5 items-center">
                     <i data-lucide="home"></i>
                     <div>
-                        <div class="text-xl font-semibold leading-8">Cleanliness Report</div>
-                        <div class="text-base text-slate-900 mt-1">Total report : {{ number_format($clean) }}</div>
-                        <div class="text-base text-slate-900 mt-1">Last report : {{ $lastC ? $lastC->created_at->format('d / M / Y') : '-' }}</div>
+                        <div class="text-xl font-semibold leading-8">Laporan Kebersihan</div>
+                        <div class="text-base text-slate-900 mt-1">Total Laporan : {{ number_format($clean) }}</div>
+                        <div class="text-base text-slate-900 mt-1">Laporan Terakhir: {{ $lastC ? $lastC->created_at->format('d / M / Y') : '-' }}</div>
                     </div>
                 </div>
             </a>
@@ -22,9 +22,9 @@
                 <div class="flex gap-5 items-center">
                     <i data-lucide="cross"></i>
                     <div>
-                        <div class="text-xl font-semibold leading-8">Health Report</div>
-                        <div class="text-base text-slate-900 mt-1">Total report : {{ number_format($health) }}</div>
-                        <div class="text-base text-slate-900 mt-1">Last report : {{ $lastH ? $lastH->created_at->format('d / M / Y') : '-' }}</div>
+                        <div class="text-xl font-semibold leading-8">Laporan Kesehatan</div>
+                        <div class="text-base text-slate-900 mt-1">Total Laporan : {{ number_format($health) }}</div>
+                        <div class="text-base text-slate-900 mt-1">Laporan Terakhir: {{ $lastH ? $lastH->created_at->format('d / M / Y') : '-' }}</div>
                     </div>
                 </div>
             </a>
@@ -32,9 +32,9 @@
                 <div class="flex gap-5 items-center">
                     <i data-lucide="shield"></i>
                     <div>
-                        <div class="text-xl font-semibold leading-8">Safety Report</div>
-                        <div class="text-base text-slate-900 mt-1">Total report : {{ number_format($safety) }}</div>
-                        <div class="text-base text-slate-900 mt-1">Last report : {{ $lastS ? $lastS->created_at->format('d / M / Y') : '-' }}</div>
+                        <div class="text-xl font-semibold leading-8">Laporan Keselamatan</div>
+                        <div class="text-base text-slate-900 mt-1">Total Laporan : {{ number_format($safety) }}</div>
+                        <div class="text-base text-slate-900 mt-1">Laporan Terakhir: {{ $lastS ? $lastS->created_at->format('d / M / Y') : '-' }}</div>
                     </div>
                 </div>
             </a>
@@ -42,9 +42,9 @@
                 <div class="flex gap-5 items-center">
                     <i data-lucide="archive"></i>
                     <div>
-                        <div class="text-xl font-semibold leading-8">Environment Report</div>
-                        <div class="text-base text-slate-900 mt-1">Total report : {{ number_format($environment) }}</div>
-                        <div class="text-base text-slate-900 mt-1">Last report : {{ $lastE ? $lastE->created_at->format('d / M / Y') : '-' }}</div>
+                        <div class="text-xl font-semibold leading-8">Laporan Lingkungan</div>
+                        <div class="text-base text-slate-900 mt-1">Total Laporan : {{ number_format($environment) }}</div>
+                        <div class="text-base text-slate-900 mt-1">Laporan Terakhir: {{ $lastE ? $lastE->created_at->format('d / M / Y') : '-' }}</div>
                     </div>
                 </div>
             </a>

@@ -10,8 +10,7 @@
                     History Analisis Kesehatan
                 </h2>
                 <div class="flex gap-3 ml-auto mt-5 md:mt-0">
-                    <x-button-light color="blue" text='Add Type 1' :link="route('analisis-chse.health1')" />
-                    <x-button-light color="blue" text='Add Type 2' :link="route('analisis-chse.health2')" />
+                    <x-button-light color="blue" text='tambah laporan' :link="route('analisis-chse.health1')" />
                 </div>
             </div>
             <div class="intro-y col-span-12 mt-5">
@@ -125,10 +124,10 @@
                                                     <div class="mt-5">
                                                         <h2 class="text-lg font-medium truncate mt-3 mb-2">Checklist</h2>
                                                         @if ($item->number == 1)
-                                                            <div class="text-base">Pertanyaan : Adanya SOP K3 di tempat kerja</div>
+                                                            <div class="text-base">Pertanyaan : Adanya Jaminan Kesehatan Bagi Pekerja Adanya SOP K3 di tempat kerja</div>
                                                         @endif
                                                         @if ($item->number == 2)
-                                                            <div class="text-base">Pertanyaan : Adanya APAR di tempat kerja</div>
+                                                            <div class="text-base">Pertanyaan : Fasilitas Pemeriksaan Kesehatan bagi Pekerja</div>
                                                         @endif
                                                         <h4 class="mt-2 text-base">{{ $item->check ? 'Ada' : 'Tidak Ada' }}</h4>
                                                     </div>

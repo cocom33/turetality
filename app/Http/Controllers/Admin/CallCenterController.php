@@ -25,27 +25,14 @@ class CallCenterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'callcenter' => 'required',
-            'type' => 'required',
-            'number' => 'required',
+            'phone' => 'required|numeric',
             'name' => 'sometimes',
         ]);
 
-        $call = CallCenter::create([
-            'name' => $request->callcenter
+        CallCenter::create([
+            'name' => $request->name,
+            'phone' => $request->phone,
         ]);
-
-        foreach ($request->type as $key => $value) {
-            $data[] = [
-                "call_center_id" => $call->id,
-                "type" => $request->type[$key],
-                "number" => $request->number[$key],
-                "name" => $request->name[$key] ?? '',
-            ];
-        }
-
-        // dd($data, $request->all());
-        DB::table('call_center_details')->insert($data);
 
         return redirect()->route('admin.call-center')->with('success', 'berhasil membuat data panggilan');
     }
@@ -61,32 +48,18 @@ class CallCenterController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'callcenter' => 'required',
-            'type' => 'required',
-            'number' => 'required',
-            'name' => 'sometimes',
+            'phone' => 'required',
+            'name' => 'required',
         ]);
 
         $call = CallCenter::find($id);
-        $detail = CallCenterDetail::where('call_center_id', $call->id)->get();
-
-        foreach ($request->type as $key => $value) {
-            $data[$request->id[$key]] = [
-                "type" => $request->type[$key],
-                "number" => $request->number[$key],
-                "name" => $request->name[$key] ?? '',
-            ];
-        }
 
         $call->update([
-            'name' => $request->callcenter,
+            'name' => $request->name,
+            'phone' => $request->phone,
         ]);
 
-        foreach ($detail as $key => $value) {
-            $value->update($data[$value->id]);
-        }
-
-        return redirect()->route('admin.call-center')->with('success', 'berhasil membuat data panggilan');
+        return redirect()->route('admin.call-center')->with('success', 'berhasil memperbarui panggilan');
     }
 
     public function delete($id)

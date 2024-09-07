@@ -41,7 +41,7 @@ class WorkerHealthController extends Controller
 
         UserHealth::create($validate);
 
-        return redirect()->route('admin.worker-health');
+        return redirect()->route('admin.worker-health')->with('success', 'berhasil membuat laporan kesehatan pekerja');
     }
 
     public function delete($id)
@@ -62,7 +62,7 @@ class WorkerHealthController extends Controller
             'recomendation' => $request->recomendation
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'berhasil menambahkan rekomendasi');
     }
 
     public function export(Request $request)

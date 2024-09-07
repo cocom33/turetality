@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('call_center_details', function (Blueprint $table) {
-            $table->id();
-            $table->foreignUuid('call_center_id')->index();
-            $table->string('type');
-            $table->string('name');
-            $table->string('number');
-            $table->timestamps();
+        Schema::table('call_centers', function (Blueprint $table) {
+            $table->string('phone');
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('call_center_details');
+        Schema::table('call_centers', function (Blueprint $table) {
+            $table->dropColumn("phone");
+        });
     }
 };

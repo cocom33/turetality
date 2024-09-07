@@ -38,7 +38,7 @@ class ReportController extends Controller
 
         Report::create($validate);
 
-        return redirect()->route('admin.report');
+        return redirect()->route('admin.report')->with('success', 'berhasil membuat laporan');
     }
 
     public function change($id)
@@ -48,7 +48,7 @@ class ReportController extends Controller
             'status' => !$data->status
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'berhasil memperbarui laporan');
     }
 
     public function delete($id)

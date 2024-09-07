@@ -76,15 +76,15 @@
                 <div class="col-span-12 mt-12">
                     <div class="intro-y flex items-center h-10">
                         <h2 class="text-lg font-medium truncate mr-5">
-                            Add Report
+                            Tambah Laporan
                         </h2>
                     </div>
                     <a href="{{ route('admin.analisis-chse.clean') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-3 transition-transform duration-300">
                         <div class="flex gap-5 items-center">
                             <i data-lucide="home"></i>
                             <div>
-                                <div class="text-xl font-semibold leading-8">Add Laporan Kebersihan</div>
-                                <div class="text-base text-slate-900 mt-1">Last you added report : {{ $lastC ? $lastC->created_at->format('d - M - Y') : '-' }}</div>
+                                <div class="text-xl font-semibold leading-8">Tambah Laporan Kebersihan</div>
+                                <div class="text-base text-slate-900 mt-1">Laporan Terakhir : {{ $lastC ? $lastC->created_at->format('d - M - Y') : '-' }}</div>
                             </div>
                         </div>
                     </a>
@@ -92,8 +92,8 @@
                         <div class="flex gap-5 items-center">
                             <i data-lucide="cross"></i>
                             <div>
-                                <div class="text-xl font-semibold leading-8">Add Laporan Kesehatan</div>
-                                <div class="text-base text-slate-900 mt-1">Last you added report : {{ $lastH ? $lastH->created_at->format('d - M - Y') : '-' }}</div>
+                                <div class="text-xl font-semibold leading-8">Tambah Laporan Kesehatan</div>
+                                <div class="text-base text-slate-900 mt-1">Laporan Terakhir : {{ $lastH ? $lastH->created_at->format('d - M - Y') : '-' }}</div>
                             </div>
                         </div>
                     </a>
@@ -101,8 +101,8 @@
                         <div class="flex gap-5 items-center">
                             <i data-lucide="shield"></i>
                             <div>
-                                <div class="text-xl font-semibold leading-8">Add Laporan Keselamatan</div>
-                                <div class="text-base text-slate-900 mt-1">Last you added report : {{ $lastS ? $lastS->created_at->format('d - M - Y') : '-' }}</div>
+                                <div class="text-xl font-semibold leading-8">Tambah Laporan Keselamatan</div>
+                                <div class="text-base text-slate-900 mt-1">Laporan Terakhir : {{ $lastS ? $lastS->created_at->format('d - M - Y') : '-' }}</div>
                             </div>
                         </div>
                     </a>
@@ -110,8 +110,8 @@
                         <div class="flex gap-5 items-center">
                             <i data-lucide="archive"></i>
                             <div>
-                                <div class="text-xl font-semibold leading-8">Add Laporan Lingkungan</div>
-                                <div class="text-base text-slate-900 mt-1">Last you added report : {{ $lastE ? $lastE->created_at->format('d - M - Y') : '-' }}</div>
+                                <div class="text-xl font-semibold leading-8">Tambah Laporan Lingkungan</div>
+                                <div class="text-base text-slate-900 mt-1">Laporan Terakhir : {{ $lastE ? $lastE->created_at->format('d - M - Y') : '-' }}</div>
                             </div>
                         </div>
                     </a>

@@ -58,6 +58,11 @@
                             </div>
                         </div>
                     </div>
+                    @if (session('success'))
+                        <div class="px-6 py-3 mb-3 text-white bg-green-600 rounded-lg mt-5">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <div class="overflow-x-auto">
                         <table class="table table-hover">
                             <thead>

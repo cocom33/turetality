@@ -10,7 +10,7 @@ class CallCenter extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'phone'];
 
     public function details()
     {

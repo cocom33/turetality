@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\AnalystChsesExport;
 use App\Http\Controllers\Controller;
 use App\Models\AnalystChse;
+use App\Models\Answer;
+use App\Models\AnswerChse;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -91,5 +93,37 @@ class HistoryChseController extends Controller
         $data['data'] = AnalystChse::where('type', 'environment')->paginate(20);
 
         return view('admin.master-data.CHSE.environment', $data);
+    }
+
+    public function custom($type)
+    {
+        $data['data'] = Answer::with('question', 'answer', 'answer.question_form')->where('type', $type)->paginate(20);
+        $data['title'] = 'Laporan Tambahan untuk ';
+        if ($type == 'clean') {
+            $data['title'] .= 'Kebersihan';
+        } elseif ($type == 'safety') {
+            $data['title'] .= 'Keselamatan';
+        } elseif ($type == 'environment') {
+            $data['title'] .= 'Lingkungan';
+        } else {
+            $data['title'] .= 'Kesehatan';
+        }
+
+        return view('admin.master-data.CHSE.custom', $data);
+    }
+
+    public function customDelete($id) {
+        $a = Answer::find($id);
+        $q = AnswerChse::where('answer_id', $a->id)->get();
+
+        foreach ($q as $value) {
+            if ($value->question_form->type == 'image') {
+                $this->file_delete($value->answer);
+            }
+            $value->delete();
+        }
+        $a->delete();
+
+        return redirect()->back()->with('success', 'berhasil menghapus laporan');
     }
 }

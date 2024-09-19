@@ -30,6 +30,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/lingkungan', [AnalisisChseController::class, 'environment1'])->name('environment1');
 
         Route::post('/store', [AnalisisChseController::class, 'store'])->name('store');
+
+        Route::get('/question/{type}', [AnalisisChseController::class, 'questionList'])->name('question-list');
+        Route::get('/question/{type}/{id}', [AnalisisChseController::class, 'questionForm'])->name('question-form');
+        Route::post('/question/{type}/{id}', [AnalisisChseController::class, 'questionFormStore'])->name('question-form.store');
     });
 
     Route::prefix('/analisis-gizi')->name('analisis-gizi.')->group(function() {
@@ -67,6 +71,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/analisis-chse/lingkungan', [HistoryChseController::class, 'environment'])->name('chse.environment');
         Route::post('/analisis-chse/export', [HistoryChseController::class, 'export'])->name('chse.export');
         Route::delete('/analisis-chse/delete/{id}', [HistoryChseController::class, 'delete'])->name('chse.delete');
+
+        Route::get('/analisis-chse/custom/{type}', [HistoryChseController::class, 'custom'])->name('chse.custom');
+        Route::delete('/analisis-chse/custom/{delete}', [HistoryChseController::class, 'customDelete'])->name('chse.custom-delete');
 
         Route::get('/analisis-gizi', [HistoryGiziController::class, 'index'])->name('gizi');
         Route::get('/analisis-gizi/sarapan', [HistoryGiziController::class, 'breakfast'])->name('gizi.breakfast');

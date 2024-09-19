@@ -36,6 +36,13 @@ Route::prefix("/admin")->name("admin.")->group(function () {
             Route::get('/environment', [AnalystChseController::class, 'environment'])->name('environment');
 
             Route::post('/cleanliness', [AnalystChseController::class, 'chseStore'])->name('store');
+
+            Route::get('/add-question', [AnalystChseController::class, 'addQuestion'])->name('question');
+            Route::post('/add-question', [AnalystChseController::class, 'storeQuestion'])->name('store-question');
+
+            Route::get('/question/{type}', [AnalystChseController::class, 'questionList'])->name('question-list');
+            Route::get('/question/{type}/{id}', [AnalystChseController::class, 'questionForm'])->name('question-form');
+            Route::post('/question/{type}/{id}', [AnalystChseController::class, 'questionFormStore'])->name('question-form.store');
         });
 
         Route::prefix("/analisis-gizi")->name("analisis-gizi.")->group(function () {
@@ -84,6 +91,9 @@ Route::prefix("/admin")->name("admin.")->group(function () {
             Route::get('/analisis-chse/environment', [HistoryChseController::class, 'environment'])->name('chse.environment');
             Route::post('/analisis-chse/export', [HistoryChseController::class, 'export'])->name('chse.export');
             Route::delete('/analisis-chse/delete/{id}', [HistoryChseController::class, 'delete'])->name('chse.delete');
+
+            Route::get('/analisis-chse/custom/{type}', [HistoryChseController::class, 'custom'])->name('chse.custom');
+            Route::delete('/analisis-chse/custom/{delete}', [HistoryChseController::class, 'customDelete'])->name('chse.custom-delete');
 
             Route::get('/analisis-gizi', [HistoryGiziController::class, 'index'])->name('gizi');
             Route::get('/analisis-gizi/breakfast', [HistoryGiziController::class, 'breakfast'])->name('gizi.breakfast');

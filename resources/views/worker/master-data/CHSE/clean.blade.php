@@ -10,6 +10,7 @@
                     History Analisis Kebersihan
                 </h2>
                 <div class="flex gap-3 ml-auto mt-5 md:mt-0">
+                    <x-button-light color="blue" text='laporan custom' :link="route('history.chse.custom', 'clean')" />
                     <x-button-light color="blue" text='tambah laporan' :link="route('analisis-chse.clean1')" />
                 </div>
             </div>

@@ -10,7 +10,7 @@
                     History Laporan
                 </h2>
             </div>
-            <a href="{{ route('admin.history.gizi.breakfast') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-3 transition-transform duration-300">
+            <a href="{{ route('admin.history.gizi.breakfast') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-1 transition-transform duration-300">
                 <div class="flex gap-5 items-center">
                     <i data-lucide="shield"></i>
                     <div>
@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </a>
-            <a href="{{ route('admin.history.gizi.launch') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-3 transition-transform duration-300">
+            <a href="{{ route('admin.history.gizi.launch') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-1 transition-transform duration-300">
                 <div class="flex gap-5 items-center">
                     <i data-lucide="shield"></i>
                     <div>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </a>
-            <a href="{{ route('admin.history.gizi.dinner') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-3 transition-transform duration-300">
+            <a href="{{ route('admin.history.gizi.dinner') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-1 transition-transform duration-300">
                 <div class="flex gap-5 items-center">
                     <i data-lucide="shield"></i>
                     <div>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </a>
-            <a href="{{ route('admin.history.gizi.snack') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-3 transition-transform duration-300">
+            <a href="{{ route('admin.history.gizi.snack') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-1 transition-transform duration-300">
                 <div class="flex gap-5 items-center">
                     <i data-lucide="shield"></i>
                     <div>

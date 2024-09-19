@@ -79,6 +79,11 @@
                             Tambah Laporan
                         </h2>
                     </div>
+                    @if (session('success'))
+                        <div class="px-6 py-3 text-white bg-green-600 rounded-lg mt-5">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <div class="p-6 rounded-lg bg-white shadow-md flex mt-4">
                         <div class="flex flex-col md:flex-row md:items-center md:justify-between w-full">
                             <div class="flex items-center gap-5 mr-auto">
@@ -88,10 +93,12 @@
                                     <div class="text-base text-slate-900 mt-1">Laporan Terakhir : {{ $lastC ? $lastC->created_at->format('d - M - Y') : '-' }}</div>
                                 </div>
                             </div>
-                            <div class="flex gap-3 items-center ml-auto mt-5 md:mt-0">
-                                <div class="flex flex-col items-center relative">
-                                    <x-button-light color="green" text="tambah laporan" :link="route('analisis-chse.clean1')" />
-                                </div>
+                            <div class="flex gap-2 items-center ml-auto mt-5 md:mt-0">
+                                <x-button-light color="green" text="Laporan Default" :link="route('analisis-chse.clean1')" />
+                                <x-button-light
+                                    color="green" text="Laporan Tambahan"
+                                    :link="route('analisis-chse.question-list', 'clean')"
+                                />
                             </div>
                         </div>
                     </div>
@@ -104,10 +111,12 @@
                                     <div class="text-base text-slate-900 mt-1">Laporan Terakhir : {{ $lastH ? $lastH->created_at->format('d - M - Y') : '-' }}</div>
                                 </div>
                             </div>
-                            <div class="flex gap-3 items-center ml-auto mt-5 md:mt-0">
-                                <div class="flex flex-col items-center relative">
-                                    <x-button-light color="green" text="tambah laporan" :link="route('analisis-chse.health1')" />
-                                </div>
+                            <div class="flex gap-2 items-center ml-auto mt-5 md:mt-0">
+                                <x-button-light color="green" text="tambah laporan" :link="route('analisis-chse.health1')" />
+                                <x-button-light
+                                    color="green" text="Laporan Tambahan"
+                                    :link="route('analisis-chse.question-list', 'health')"
+                                />
                             </div>
                         </div>
                     </div>
@@ -121,9 +130,11 @@
                                 </div>
                             </div>
                             <div class="flex gap-3 items-center ml-auto mt-5 md:mt-0">
-                                <div class="flex flex-col items-center relative">
-                                    <x-button-light color="green" text="tambah laporan" :link="route('analisis-chse.safety1')" />
-                                </div>
+                                <x-button-light color="green" text="tambah laporan" :link="route('analisis-chse.safety1')" />
+                                <x-button-light
+                                    color="green" text="Laporan Tambahan"
+                                    :link="route('analisis-chse.question-list', 'safety')"
+                                />
                             </div>
                         </div>
                     </div>
@@ -137,9 +148,11 @@
                                 </div>
                             </div>
                             <div class="flex gap-3 items-center ml-auto mt-5 md:mt-0">
-                                <div class="flex flex-col items-center relative">
-                                    <x-button-light color="green" text="tambah laporan" :link="route('analisis-chse.environment1')" />
-                                </div>
+                                <x-button-light color="green" text="tambah laporan" :link="route('analisis-chse.environment1')" />
+                                <x-button-light
+                                    color="green" text="Laporan Tambahan"
+                                    :link="route('analisis-chse.question-list', 'environment')"
+                                />
                             </div>
                         </div>
                     </div>

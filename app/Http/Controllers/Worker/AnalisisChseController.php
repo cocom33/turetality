@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Worker;
 
 use App\Http\Controllers\Controller;
 use App\Models\AnalystChse;
+use App\Models\Answer;
+use App\Models\Question;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -77,5 +79,70 @@ class AnalisisChseController extends Controller
     public function environment1()
     {
         return view('worker.analyst-chse.environment');
+    }
+
+
+
+    public function questionList($type) {
+        $data['chse'] = Question::where('type', $type)->get();
+        $data['title'] = 'History Laporan Tambahan untuk ';
+        if ($type == 'clean') {
+            $data['title'] .= 'Kebersihan';
+        } elseif ($type == 'safety') {
+            $data['title'] .= 'Keselamatan';
+        } elseif ($type == 'environment') {
+            $data['title'] .= 'Lingkungan';
+        } else {
+            $data['title'] .= 'Kesehatan';
+        }
+
+        return view('worker.analyst-chse.list', $data);
+    }
+
+    public function questionForm($type, $id) {
+        $data['chse'] = Question::find($id);
+        $data['title'] = 'Laporan Tambahan untuk ';
+        if ($type == 'clean') {
+            $data['title'] .= 'Kebersihan';
+        } elseif ($type == 'safety') {
+            $data['title'] .= 'Keselamatan';
+        } elseif ($type == 'environment') {
+            $data['title'] .= 'Lingkungan';
+        } else {
+            $data['title'] .= 'Kesehatan';
+        }
+
+        return view('worker.analyst-chse.form', $data);
+    }
+
+    public function questionFormStore(Request $request, $type, $id) {
+        $q = Answer::create([
+            'type' => $type,
+            'question_id' => $id,
+            'user_id' => auth()->user()->id
+        ]);
+
+        foreach ($request->all() as $key => $value) {
+            if (is_numeric($key)) {
+                if ($request->file($key)) {
+                    $t = $this->file_upload('/analisis-chse', $request->file()[$key]);
+                    $data[] = [
+                        'answer_id' => $q->id,
+                        'question_form_id' => $key,
+                        'answer' => $t,
+                    ];
+                } else {
+                    $data[] = [
+                        'answer_id' => $q->id,
+                        'question_form_id' => $key,
+                        'answer' => $value,
+                    ];
+                }
+            }
+        }
+
+        DB::table('answer_chses')->insert($data);
+
+        return redirect()->route('analisis-chse.index')->with('success', 'berhasil menambahkan laporan');
     }
 }

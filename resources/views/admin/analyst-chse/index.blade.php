@@ -74,12 +74,22 @@
             </div>
             <div class="grid grid-cols-12 gap-6">
                 <div class="col-span-12 mt-12">
-                    <div class="intro-y flex items-center h-10">
+                    <div class="intro-y flex items-center justify-between h-10">
                         <h2 class="text-lg font-medium truncate mr-5">
                             Tambah Laporan
                         </h2>
+                        <x-button-light
+                            attr="form=analyst"
+                            color="blue" text="tambah pertanyaan"
+                            :link="route('admin.analisis-chse.question')"
+                        />
                     </div>
-                    <a href="{{ route('admin.analisis-chse.clean') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-3 transition-transform duration-300">
+                    @if (session('success'))
+                        <div class="px-6 py-3 text-white bg-green-600 rounded-lg mt-5">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    <div class="p-6 rounded-lg bg-white shadow-md flex justify-between items-center mt-4 hover:-translate-y-1 transition-transform duration-300">
                         <div class="flex gap-5 items-center">
                             <i data-lucide="home"></i>
                             <div>
@@ -87,8 +97,18 @@
                                 <div class="text-base text-slate-900 mt-1">Laporan Terakhir : {{ $lastC ? $lastC->created_at->format('d - M - Y') : '-' }}</div>
                             </div>
                         </div>
-                    </a>
-                    <a href="{{ route('admin.analisis-chse.health') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-3 transition-transform duration-300">
+                        <div class="gap-2 flex">
+                            <x-button-light
+                                color="blue" text="Laporan Default"
+                                :link="route('admin.analisis-chse.clean')"
+                            />
+                            <x-button-light
+                                color="blue" text="Laporan Tambahan"
+                                :link="route('admin.analisis-chse.question-list', 'clean')"
+                            />
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-lg bg-white shadow-md flex justify-between items-center mt-4 hover:-translate-y-1 transition-transform duration-300">
                         <div class="flex gap-5 items-center">
                             <i data-lucide="cross"></i>
                             <div>
@@ -96,8 +116,18 @@
                                 <div class="text-base text-slate-900 mt-1">Laporan Terakhir : {{ $lastH ? $lastH->created_at->format('d - M - Y') : '-' }}</div>
                             </div>
                         </div>
-                    </a>
-                    <a href="{{ route('admin.analisis-chse.safety') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-3 transition-transform duration-300">
+                        <div class="gap-2 flex">
+                            <x-button-light
+                                color="blue" text="Laporan Default"
+                                :link="route('admin.analisis-chse.health')"
+                            />
+                            <x-button-light
+                                color="blue" text="Laporan Tambahan"
+                                :link="route('admin.analisis-chse.question-list', 'health')"
+                            />
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-lg bg-white shadow-md flex justify-between items-center mt-4 hover:-translate-y-1 transition-transform duration-300">
                         <div class="flex gap-5 items-center">
                             <i data-lucide="shield"></i>
                             <div>
@@ -105,8 +135,18 @@
                                 <div class="text-base text-slate-900 mt-1">Laporan Terakhir : {{ $lastS ? $lastS->created_at->format('d - M - Y') : '-' }}</div>
                             </div>
                         </div>
-                    </a>
-                    <a href="{{ route('admin.analisis-chse.environment') }}" class="p-6 rounded-lg bg-white shadow-md flex mt-4 hover:-translate-y-3 transition-transform duration-300">
+                        <div class="gap-2 flex">
+                            <x-button-light
+                                color="blue" text="Laporan Default"
+                                :link="route('admin.analisis-chse.safety')"
+                            />
+                            <x-button-light
+                                color="blue" text="Laporan Tambahan"
+                                :link="route('admin.analisis-chse.question-list', 'safety')"
+                            />
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-lg bg-white shadow-md flex justify-between items-center mt-4 hover:-translate-y-1 transition-transform duration-300">
                         <div class="flex gap-5 items-center">
                             <i data-lucide="archive"></i>
                             <div>
@@ -114,7 +154,17 @@
                                 <div class="text-base text-slate-900 mt-1">Laporan Terakhir : {{ $lastE ? $lastE->created_at->format('d - M - Y') : '-' }}</div>
                             </div>
                         </div>
-                    </a>
+                        <div class="gap-2 flex">
+                            <x-button-light
+                                color="blue" text="Laporan Default"
+                                :link="route('admin.analisis-chse.environment')"
+                            />
+                            <x-button-light
+                                color="blue" text="Laporan Tambahan"
+                                :link="route('admin.analisis-chse.question-list', 'environment')"
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

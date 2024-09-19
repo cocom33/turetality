@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Question;
 use App\Models\AnalystChse;
+use App\Models\Answer;
+use App\Models\QuestionForm;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AnalystChseController extends Controller
@@ -73,6 +77,100 @@ class AnalystChseController extends Controller
 
         DB::table('analyst_chses')->insert([$satu, $dua]);
 
-        return redirect()->route('admin.analisis-chse.index');
+        return redirect()->route('admin.analisis-chse.index')->with('success', 'berhasil membuat laporan baru');
+    }
+
+    public function addQuestion() {
+        return view('admin.analyst-chse.question');
+    }
+
+    public function storeQuestion(Request $request) {
+        $data = $request->validate([
+            'name' => 'required',
+            'chse' => 'required|in:clean,safety,health,environment',
+            'question' => 'required',
+            'type' => 'required',
+        ]);
+
+        if (count($request['type']) != count($request['question'])) {
+            return redirect()->back()->with('error', 'silahkan masukkan data dengan benar')->withInput();
+        }
+
+        $add = Question::create([
+            'type' => $data['chse'],
+            'name' => $data['name'],
+        ]);
+
+        for ($i=0; $i < count($request['type']); $i++) {
+            QuestionForm::create([
+                'question_id' => $add->id,
+                'type' => $request['type'][$i],
+                'question' => $request['question'][$i],
+            ]);
+        }
+
+        return redirect()->route('admin.analisis-chse.index')->with('success', 'berhasil membuat pertanyaan baru');
+    }
+
+    public function questionList($type) {
+        $data['chse'] = Question::where('type', $type)->get();
+        $data['title'] = 'History Laporan Tambahan untuk ';
+        if ($type == 'clean') {
+            $data['title'] .= 'Kebersihan';
+        } elseif ($type == 'safety') {
+            $data['title'] .= 'Keselamatan';
+        } elseif ($type == 'environment') {
+            $data['title'] .= 'Lingkungan';
+        } else {
+            $data['title'] .= 'Kesehatan';
+        }
+
+        return view('worker.analyst-chse.list', $data);
+    }
+
+    public function questionForm($type, $id) {
+        $data['chse'] = Question::find($id);
+        $data['title'] = 'Laporan Tambahan untuk ';
+        if ($type == 'clean') {
+            $data['title'] .= 'Kebersihan';
+        } elseif ($type == 'safety') {
+            $data['title'] .= 'Keselamatan';
+        } elseif ($type == 'environment') {
+            $data['title'] .= 'Lingkungan';
+        } else {
+            $data['title'] .= 'Kesehatan';
+        }
+
+        return view('worker.analyst-chse.form', $data);
+    }
+
+    public function questionFormStore(Request $request, $type, $id) {
+        $q = Answer::create([
+            'type' => $type,
+            'question_id' => $id
+        ]);
+
+        foreach ($request->all() as $key => $value) {
+            if (is_numeric($key)) {
+                if ($request->file($key)) {
+                    $t = $this->file_upload('/analisis-chse', $request->file()[$key]);
+                    $data[] = [
+                        'answer_id' => $q->id,
+                        'question_form_id' => $key,
+                        'answer' => $t,
+                    ];
+                } else {
+                    $data[] = [
+                        'answer_id' => $q->id,
+                        'question_form_id' => $key,
+                        'answer' => $value,
+                    ];
+                }
+            }
+        }
+
+        DB::table('answer_chses')->insert($data);
+
+        return redirect()->route('analisis-chse.index')->with('success', 'berhasil menambahkan laporan');
     }
 }

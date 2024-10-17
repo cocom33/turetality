@@ -21,7 +21,7 @@
                                         @foreach ($chse->form as $item)
                                             @if ($item->type == 'checklist')
                                                 <div>
-                                                    <label class="form-label">Adanya Jaminan Kesehatan Bagi Pekerja</label>
+                                                    <label class="form-label">{{ $item->question }}</label>
                                                     <div class="form-check mt-2">
                                                         <input checked id="yes0" class="form-check-input" type="radio" name="{{ $item->id }}" value="1">
                                                         <label class="form-check-label" for="yes0">iya</label>

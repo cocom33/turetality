@@ -19,7 +19,7 @@
                         </div>
                     @endif
                     @forelse ($chse as $item)
-                        <a href="{{ route('analisis-chse.question-form', [$item->type, $item->id]) }}" class="p-6 rounded-lg bg-white shadow-md flex justify-between items-center mt-4 hover:-translate-y-1 transition-transform duration-300">
+                        <a href="{{ route('admin.analisis-chse.question-form', [$item->type, $item->id]) }}" class="p-6 rounded-lg bg-white shadow-md flex justify-between items-center mt-4 hover:-translate-y-1 transition-transform duration-300">
                             <div class="flex gap-5 items-center">
                                 <div>
                                     <div class="text-xl font-semibold leading-8">{{ $item->name }}</div>

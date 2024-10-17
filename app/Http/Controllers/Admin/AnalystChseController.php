@@ -125,7 +125,7 @@ class AnalystChseController extends Controller
             $data['title'] .= 'Kesehatan';
         }
 
-        return view('worker.analyst-chse.list', $data);
+        return view('admin.analyst-chse.list', $data);
     }
 
     public function questionForm($type, $id) {
@@ -141,7 +141,7 @@ class AnalystChseController extends Controller
             $data['title'] .= 'Kesehatan';
         }
 
-        return view('worker.analyst-chse.form', $data);
+        return view('admin.analyst-chse.form', $data);
     }
 
     public function questionFormStore(Request $request, $type, $id) {
@@ -171,6 +171,6 @@ class AnalystChseController extends Controller
 
         DB::table('answer_chses')->insert($data);
 
-        return redirect()->route('analisis-chse.index')->with('success', 'berhasil menambahkan laporan');
+        return redirect()->route('admin.analisis-chse.index')->with('success', 'berhasil menambahkan laporan');
     }
 }

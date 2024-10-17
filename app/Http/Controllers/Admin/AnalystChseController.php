@@ -21,6 +21,12 @@ class AnalystChseController extends Controller
         $data['safety'] = AnalystChse::where('type', 'safety')->count();
         $data['environment'] = AnalystChse::where('type', 'environment')->count();
 
+        $answer = Answer::get();
+        $data['cusclean'] = $answer->where('type', 'clean')->count();
+        $data['cushealth'] = $answer->where('type', 'health')->count();
+        $data['cussafety'] = $answer->where('type', 'safety')->count();
+        $data['cusenvironment'] = $answer->where('type', 'environment')->count();
+
         $last = AnalystChse::select('type', 'user_id', 'created_at')->where('user_id', null)->orderBy('created_at', 'desc')->get();
         // dd($last);
         $data['lastC'] = $last->where('type', 'clean')->first();
@@ -114,7 +120,7 @@ class AnalystChseController extends Controller
 
     public function questionList($type) {
         $data['chse'] = Question::where('type', $type)->get();
-        $data['title'] = 'History Laporan Tambahan untuk ';
+        $data['title'] = 'History Laporan Tambahan untuk Analisis ';
         if ($type == 'clean') {
             $data['title'] .= 'Kebersihan';
         } elseif ($type == 'safety') {
@@ -130,7 +136,7 @@ class AnalystChseController extends Controller
 
     public function questionForm($type, $id) {
         $data['chse'] = Question::find($id);
-        $data['title'] = 'Laporan Tambahan untuk ';
+        $data['title'] = 'Laporan Tambahan untuk Analisis ';
         if ($type == 'clean') {
             $data['title'] .= 'Kebersihan';
         } elseif ($type == 'safety') {

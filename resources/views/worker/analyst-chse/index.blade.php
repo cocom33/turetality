@@ -21,7 +21,7 @@
                                         <a href="{{ route('history.chse.clean') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
-                                        <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($clean) }}</div>
+                                        <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($clean + $cusclean) }} ({{ $cusclean }} Laporan Custom)</div>
                                         <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
@@ -35,7 +35,7 @@
                                         <a href="{{ route('history.chse.clean') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
-                                        <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($health) }}</div>
+                                        <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($health + $cushealth) }} ({{ $cushealth }} Laporan Custom)</div>
                                         <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
                                         <a href="{{ route('history.chse.safety') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
-                                        <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($safety) }}</div>
+                                        <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($safety + $cussafety) }} ({{ $cussafety }} Laporan Custom)</div>
                                         <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                         <a href="{{ route('history.chse.environment') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">
-                                        <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($environment) }}</div>
+                                        <div class="text-3xl font-medium leading-8 mt-6">{{ number_format($environment + $cusenvironment) }} ({{ $cusenvironment }} Laporan Custom)</div>
                                         <div class="text-base text-slate-500 mt-1">Laporan</div>
                                     </div>
                                 </div>

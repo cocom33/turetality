@@ -26,6 +26,12 @@ class AnalisisChseController extends Controller
         $data['lastS'] = $last->where('type', 'safety')->first();
         $data['lastE'] = $last->where('type', 'environment')->first();
 
+        $answer = Answer::where('user_id', auth()->user()->id)->get();
+        $data['cusclean'] = $answer->where('type', 'clean')->count();
+        $data['cushealth'] = $answer->where('type', 'health')->count();
+        $data['cussafety'] = $answer->where('type', 'safety')->count();
+        $data['cusenvironment'] = $answer->where('type', 'environment')->count();
+
         return view('worker.analyst-chse.index', $data);
     }
 
@@ -85,7 +91,7 @@ class AnalisisChseController extends Controller
 
     public function questionList($type) {
         $data['chse'] = Question::where('type', $type)->get();
-        $data['title'] = 'History Laporan Tambahan untuk ';
+        $data['title'] = 'History Laporan Tambahan untuk Analisis ';
         if ($type == 'clean') {
             $data['title'] .= 'Kebersihan';
         } elseif ($type == 'safety') {
@@ -101,7 +107,7 @@ class AnalisisChseController extends Controller
 
     public function questionForm($type, $id) {
         $data['chse'] = Question::find($id);
-        $data['title'] = 'Laporan Tambahan untuk ';
+        $data['title'] = 'Laporan Tambahan untuk Analisis ';
         if ($type == 'clean') {
             $data['title'] .= 'Kebersihan';
         } elseif ($type == 'safety') {

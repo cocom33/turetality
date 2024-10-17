@@ -15,7 +15,7 @@
                     <i data-lucide="home"></i>
                     <div>
                         <div class="text-xl font-semibold leading-8">Laporan Kebersihan</div>
-                        <div class="text-base text-slate-900 mt-1">Total Laporan : {{ number_format($clean) }}</div>
+                        <div class="text-base text-slate-900 mt-1">Total Laporan : {{ number_format($clean + $cusclean) }} ({{ $cusclean }} Laporan Custom)</div>
                         <div class="text-base text-slate-900 mt-1">Laporan Terakhir: {{ $lastC ? $lastC->created_at->format('d / M / Y') . ($lastC->user_id ? ' - ' . $lastC->user->name : ' - Admin') : '-' }}</div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                     <i data-lucide="cross"></i>
                     <div>
                         <div class="text-xl font-semibold leading-8">Laporan Kesehatan</div>
-                        <div class="text-base text-slate-900 mt-1">Total Laporan : {{ number_format($health) }}</div>
+                        <div class="text-base text-slate-900 mt-1">Total Laporan : {{ number_format($health + $cushealth) }} ({{ $cushealth }} Laporan Custom)</div>
                         <div class="text-base text-slate-900 mt-1">Laporan Terakhir: {{ $lastH ? $lastH->created_at->format('d / M / Y') . ($lastH->user_id ? ' - ' . $lastH->user->name : ' - Admin') : '-' }}</div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     <i data-lucide="shield"></i>
                     <div>
                         <div class="text-xl font-semibold leading-8">Laporan Keselamatan</div>
-                        <div class="text-base text-slate-900 mt-1">Total Laporan : {{ number_format($safety) }}</div>
+                        <div class="text-base text-slate-900 mt-1">Total Laporan : {{ number_format($safety + $cussafety) }} ({{ $cussafety }} Laporan Custom)</div>
                         <div class="text-base text-slate-900 mt-1">Laporan Terakhir: {{ $lastS ? $lastS->created_at->format('d / M / Y') . ($lastS->user_id ? ' - ' . $lastS->user->name : ' - Admin') : '-' }}</div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                     <i data-lucide="archive"></i>
                     <div>
                         <div class="text-xl font-semibold leading-8">Laporan Lingkungan</div>
-                        <div class="text-base text-slate-900 mt-1">Total Laporan : {{ number_format($environment) }}</div>
+                        <div class="text-base text-slate-900 mt-1">Total Laporan : {{ number_format($environment + $cusenvironment) }} ({{ $cusenvironment }} Laporan Custom)</div>
                         <div class="text-base text-slate-900 mt-1">Laporan Terakhir: {{ $lastE ? $lastE->created_at->format('d / M / Y') . ($lastE->user_id ? ' - ' . $lastE->user->name : ' - Admin') : '-' }}</div>
                     </div>
                 </div>

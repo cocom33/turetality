@@ -29,7 +29,7 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex justify-between items-center">
-                                        <div class="text-xl font-medium leading-8">Kesehatan</div>
+                                        <div class="text-xl font-medium leading-8">Kebersihan</div>
                                         <a href="{{ route('history.chse.clean') }}" class="text-blue-500">lihat semua</a>
                                     </div>
                                     <div class="flex items-end gap-3">

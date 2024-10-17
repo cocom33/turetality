@@ -21,12 +21,6 @@ class AnalystChseController extends Controller
         $data['safety'] = AnalystChse::where('type', 'safety')->count();
         $data['environment'] = AnalystChse::where('type', 'environment')->count();
 
-        $answer = Answer::get();
-        $data['cusclean'] = $answer->where('type', 'clean')->count();
-        $data['cushealth'] = $answer->where('type', 'health')->count();
-        $data['cussafety'] = $answer->where('type', 'safety')->count();
-        $data['cusenvironment'] = $answer->where('type', 'environment')->count();
-
         $last = AnalystChse::select('type', 'user_id', 'created_at')->where('user_id', null)->orderBy('created_at', 'desc')->get();
         // dd($last);
         $data['lastC'] = $last->where('type', 'clean')->first();

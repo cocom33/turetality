@@ -28,6 +28,12 @@ class HistoryChseController extends Controller
         $data['lastS'] = $last->where('type', 'safety')->first();
         $data['lastE'] = $last->where('type', 'environment')->first();
 
+        $answer = Answer::get();
+        $data['cusclean'] = $answer->where('type', 'clean')->count();
+        $data['cushealth'] = $answer->where('type', 'health')->count();
+        $data['cussafety'] = $answer->where('type', 'safety')->count();
+        $data['cusenvironment'] = $answer->where('type', 'environment')->count();
+
         return view('admin.master-data.CHSE.index', $data);
     }
 

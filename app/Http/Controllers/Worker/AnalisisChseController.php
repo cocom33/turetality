@@ -26,12 +26,6 @@ class AnalisisChseController extends Controller
         $data['lastS'] = $last->where('type', 'safety')->first();
         $data['lastE'] = $last->where('type', 'environment')->first();
 
-        $answer = Answer::where('user_id', auth()->user()->id)->get();
-        $data['cusclean'] = $answer->where('type', 'clean')->count();
-        $data['cushealth'] = $answer->where('type', 'health')->count();
-        $data['cussafety'] = $answer->where('type', 'safety')->count();
-        $data['cusenvironment'] = $answer->where('type', 'environment')->count();
-
         return view('worker.analyst-chse.index', $data);
     }
 

@@ -19,7 +19,7 @@
                                 <tr>
                                     <th class="whitespace-nowrap">No</th>
                                     <th class="whitespace-nowrap">Nama</th>
-                                    <th class="whitespace-nowrap">Phone</th>
+                                    <th class="whitespace-nowrap">Nomor</th>
                                     <th class="whitespace-nowrap">Tanggal Ditambahkan</th>
                                 </tr>
                             </thead>
